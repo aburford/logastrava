@@ -1,0 +1,2 @@
+class StaticDatum < ApplicationRecord
+end

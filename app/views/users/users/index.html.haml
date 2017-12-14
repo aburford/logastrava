@@ -1,0 +1,10 @@
+=link_to 'Back', root_path
+%h1= "LogAStrava Account Settings for #{@current_user.username}"
+- unless @info
+  %p Your LogAStrava account is not synced with your Strava account
+  - data = StaticDatum.first
+  =link_to 'Give LogAStrava access to your Strava account', "https://www.strava.com/oauth/authorize?client_id=#{data.client_id}&response_type=code&redirect_uri=https://logastrava.cf/users/exchange&scope=write"
+- else
+  %p= "Strava account for #{@info['firstname']} #{@info['lastname']} is correctly synced with LogAStrava"
+%p You must join the LogAStrava team on #{link_to 'LogARun', 'http://logarun.com'} in order to LogAStrava to work
+%a#lar-check Click here to check if my LogARun account is correctly synced with LogAStrava
