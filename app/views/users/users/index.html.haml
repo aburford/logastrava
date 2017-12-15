@@ -6,5 +6,10 @@
   =link_to 'Give LogAStrava access to your Strava account', "https://www.strava.com/oauth/authorize?client_id=#{data.client_id}&response_type=code&redirect_uri=https://logastrava.cf/users/exchange&scope=write"
 - else
   %p= "Strava account for #{@info['firstname']} #{@info['lastname']} is correctly synced with LogAStrava"
-%p You must join the LogAStrava team on #{link_to 'LogARun', 'http://logarun.com'} in order to LogAStrava to work
-%a#lar-check Click here to check if my LogARun account is correctly synced with LogAStrava
+%p You must join the LogAStrava team on #{link_to 'LogARun', 'http://logarun.com'} in order for LogAStrava to work
+%p (Teams > Manage Teams > Find in page: LogAStrava > Join)
+%b#lar-check Click here to check if your LogARun account is correctly synced with LogAStrava.
+%br
+%br
+%p#loading{:style => 'display: none'} Loading...
+%hr

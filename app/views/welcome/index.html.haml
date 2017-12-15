@@ -1,12 +1,16 @@
 %h1 Welcome to LogAStrava!
 %p Sign up for an account to automatically sync all of your LogARun data to your Strava account!
-=link_to 'Create Account', users_new_path
+=link_to 'Create New Account', users_new_path
 %hr
+-if @logged_in
+  =link_to 'My Account', users_root_path
+  %p Log in as someone else:
+%p= @error
 = form_for :user, url: users_login_path do |f|
   = f.label 'Username:'
   = f.text_field :username
   %br
   = f.label 'Password:'
-  = f.text_field :password
+  = f.password_field :password
   %br
   = f.submit 'Log In'

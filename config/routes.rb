@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 		post '/update' => 'users#update'
 		get '/new' => 'users#new'
 		get '/exchange' => 'users#exchange'
+		get '/lar_check' => 'users#logarun_synced?'
 	end
 end

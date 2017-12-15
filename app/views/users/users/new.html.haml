@@ -1,4 +1,10 @@
+=link_to 'Back', root_path
+%p Before you create a LogAStrava account, please join the LogAStrava team on #{link_to 'LogARun', 'http://logarun.com'}
+%p (Teams > Manage Teams > Find in page: LogAStrava > Join)
+%p If you do not join the LogAStrava team first or your permissions are not set correctly, you will be unable to create a LogAStrava account
+%p Once you request to join the team, you will automagically be accepted!
 %h1 Create Account:
+%p{:style => 'color: red'}= @error
 = form_for :user, url: users_path do |f|
   %p You must use the same username as your LogARun account
   = f.label 'Username:'
@@ -6,9 +12,10 @@
   %br
   %p Please use a unique, secure password for your LogAStrava account (not your LogARun password)
   = f.label 'Password:'
-  = f.text_field :password
+  = f.password_field :password
   %br
   = f.label 'Password Confirmation:'
-  = f.text_field :password_confirmation
+  = f.password_field :password_confirmation
   %br
+  %p Your password will be stored securely with a one way encryption hash (I couldn't see it even if I wanted to)
   = f.submit 'Create Account'
