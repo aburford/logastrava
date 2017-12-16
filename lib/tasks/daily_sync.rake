@@ -34,7 +34,7 @@ namespace :daily_sync do
 				note = find_attr(body, 'Note: ')
 			end
 			u = User.find_by(username: post.at_css('.dayNum')['href'].split('/')[1])
-			if u && (!title.empty? || dur)
+			if u && (!title.empty? || body)
         # check if run has already been posted
         run_check = {before: (date + 1).to_time.to_i, after: date.to_time.to_i - 1}
         if JSON.parse(HTTP.get("https://www.strava.com/api/v3/activities?access_token=#{u.access_token}", :form => run_check).to_s).size == 0

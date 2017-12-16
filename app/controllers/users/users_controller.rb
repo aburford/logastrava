@@ -9,6 +9,7 @@ class Users::UsersController < ApplicationController
 
 	def index
 		@info = strava_info
+		@num = User.all.count
 	end
 
 	def exchange
