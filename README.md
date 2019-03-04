@@ -1,1 +1,1 @@
-The code for my website at https://logastrava.cf
+The code for my website previously hosted at https://logastrava.cf
